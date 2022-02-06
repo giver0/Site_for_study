@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../styles-reset/reset_style.css"/>
+    <link rel="stylesheet" href="../page-sign-in/styles/sign-in_style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Header-->
+    <header class="header__container">
+        <img src="../media-items/datrics_logo_black.svg" alt="datrics_logo_black"/>
+    </header>
+    <!--SIGN-IN_FORM-->
+    <div class="sign-in__form">
+        <div class="sign-in__form-title">
+            <div>Sign in</div>
+        </div>
+        <div class="sign-in__form-container">
+            <div class="sign-in__form-container-title-field">
+                Email
+            </div>
+            <input class="sign-in__form-container-input-field" type="text" id="input-email">
+        </div>
+        <div class="sign-in__form-container">
+            <div class="sign-in__form-container-title-field">
+                Password
+            </div>
+            <input class="sign-in__form-container-input-field" type="password">
+            <a href="https://www.figma.com/file/1tEfPEgiDIT8y0HeM3RlpR/Datrics-App?node-id=3391%3A462" class="sign-in__form-container-reset">Forgot password? </a>
+        </div>
+        <div class="sign-in__form-container-auth">
+            <div>
+                <button class="sign-in__form-container-button" id="button-sing-in">Sign in</button>
+            </div>
+            <div class="sign-up__field">
+                Don`t have an account? <u><a href="/page-sign-up/sign-up.html">Sign up</a></u>
+            </div>
+        </div>
+    </div> 
+    <script>
+        const button = document.getElementById('button-sing-in')
+        const inputEmail = document.getElementById('input-email')
+        var ClickCounter = 0
+        var sumInput = 0
+        var emailInt = 0;
+
+        const activeButtonColor = '#CC3D39'
+        const disabledButtonColor = 'gray'
+        button.style.backgroundColor = disabledButtonColor
+
+
+        // button.onclick = function(){
+        //     ClickCounter++
+        //     console.log("Count of click = ",ClickCounter)
+
+        //     emailInt = parseInt(inputEmail.value)
+        //     sumInput =  sumInput + emailInt
+        //     console.log(sumInput)
+        // }
+
+        const logFailed = function(){
+            button.onclick = function(){
+                    console.log('Failed')
+                }
+        }
+
+
+        const emailInputEventHandler = function(event){
+            if(event.target.value === ''){
+                button.style.backgroundColor = disabledButtonColor
+                logFailed()
+               
+            }
+            else{
+                button.style.backgroundColor = activeButtonColor
+                button.onclick = function(){
+                    console.log('Successul. You type: ', inputEmail.value)
+                }
+                
+            }
+
+            console.log(event.target.value)
+
+        }
+
+
+        inputEmail.addEventListener('input', emailInputEventHandler)
+
+
+    </script>
+</body>
+</html>
