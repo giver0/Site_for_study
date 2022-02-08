@@ -11,8 +11,17 @@ const disabledButtonColor = 'gray'
 
 button.style.background = disabledButtonColor
 
+
+
+inputFirstName.addEventListener('input', function(event){
+    console.log(event.target.value)
+    console.log(check_if_field_not_empty(event.target.value))
+
+    
+})
+
 function check_if_field_not_empty(field_to_check){
-    if(field_to_check.value!=''){
+    if(field_to_check!=""){
         return true
     }
     else{
@@ -20,11 +29,8 @@ function check_if_field_not_empty(field_to_check){
     }
 }
 
-inputFirstName.addEventListener('input', function(event){
-    console.log(check_if_field_not_empty(event.target.value))
-    if(check_if_field_not_empty(event.target.value)){
+// console.log(check_if_field_not_empty(event.target.value))
+// if(check_if_field_not_empty(event.target.value)){
 
-        console.log(event.target.value)
-    }
-    
-})
+//     console.log(event.target.value)
+// }
