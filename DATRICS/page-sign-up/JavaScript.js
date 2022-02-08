@@ -7,7 +7,9 @@ const inputConfirmPassword = document.getElementById('input-confirm-password')
 const button = document.getElementById('button-sign-up')
 
 const activeButtonColor = '#CC3D39'
-const disabledButtonColor = 'black'
+const disabledButtonColor = 'gray'
+
+button.style.background = disabledButtonColor
 
 function check_if_field_not_empty(field_to_check){
     if(field_to_check.value!=''){
