@@ -63,10 +63,3 @@ function check_if_field_empty(field_to_check){
 function debugIfFieldEmpty(event){
     console.log(`Empty field - ${check_if_field_empty(event)}`) 
 }
-
-
-// console.log(check_if_field_not_empty(event.target.value))
-// if(check_if_field_not_empty(event.target.value)){
-
-//     console.log(event.target.value)
-// }
