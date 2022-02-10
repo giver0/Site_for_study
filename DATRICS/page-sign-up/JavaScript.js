@@ -16,7 +16,8 @@ button.style.background = disabledButtonColor
 
 inputFirstName.addEventListener('input', function(event){
     console.log(event.target.value)
-    console.log(check_if_field_empty(event.target.value))
+    debugIfFieldEmpty(event.target.value)
+
     if(check_if_field_empty(event.target.value)){
         errorMessage('Имя')
     }
@@ -43,6 +44,11 @@ function check_if_field_empty(field_to_check){
         return false
     }
 }
+
+function debugIfFieldEmpty(event){
+    console.log(`Empty field - ${check_if_field_empty(event)}`) 
+}
+
 
 // console.log(check_if_field_not_empty(event.target.value))
 // if(check_if_field_not_empty(event.target.value)){
