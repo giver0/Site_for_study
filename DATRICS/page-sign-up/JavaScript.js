@@ -15,18 +15,26 @@ button.style.background = disabledButtonColor
 
 
 inputFirstName.addEventListener('input', function(event){
-   
-    validateField(event.target.value, "Имя")
-    
+       validateFieldNotEmpty(event.target.value, "Имя")
+    })
+
+inputLastName.addEventListener('input', function(event){  
+    validateFieldNotEmpty(event.target.value, "Фамилию")    
 })
 
-inputLastName.addEventListener('input', function(event){
-  
-    validateField(event.target.value, "Фамилию")
-    
+inputEmail.addEventListener('input', function(event){  
+    validateFieldNotEmpty(event.target.value, "Email")    
 })
 
-function validateField(ChekingFeild, errorName){
+inputPassword.addEventListener('input', function(event){  
+    validateFieldNotEmpty(event.target.value, "Пароль")    
+})
+
+inputConfirmPassword.addEventListener('input', function(event){  
+    validateFieldNotEmpty(event.target.value, "Подтверждение пароля")    
+})
+
+function validateFieldNotEmpty(ChekingFeild, errorName){
     if(check_if_field_empty(ChekingFeild)){
         errorMessage(errorName)
     }
