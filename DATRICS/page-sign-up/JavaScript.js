@@ -15,18 +15,25 @@ button.style.background = disabledButtonColor
 
 
 inputFirstName.addEventListener('input', function(event){
-    console.log(event.target.value)
-    debugIfFieldEmpty(event.target.value)
+   
+    validateField(event.target.value, "Имя")
+    
+})
 
-    if(check_if_field_empty(event.target.value)){
-        errorMessage('Имя')
+inputLastName.addEventListener('input', function(event){
+  
+    validateField(event.target.value, "Фамилию")
+    
+})
+
+function validateField(ChekingFeild, errorName){
+    if(check_if_field_empty(ChekingFeild)){
+        errorMessage(errorName)
     }
     else{
         fieldSuccesful()
     }
-
-    
-})
+}
 
 function fieldSuccesful(){
     console.log('Correctly!')
