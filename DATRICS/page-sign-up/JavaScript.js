@@ -1,9 +1,7 @@
 
 const button = document.getElementById('button-sign-up')
-
 const activeButtonColor = '#CC3D39'
 const disabledButtonColor = 'gray'
-
 button.style.background = disabledButtonColor
 
 const inputFirstNameObj = {
@@ -49,6 +47,7 @@ let arrayInputObject = [inputFirstNameObj,
     
 
 
+//At the beginin all field must show error
 for(let InputObject of arrayInputObject){
     FillErrorField(InputObject)
 }
@@ -57,7 +56,11 @@ function FillErrorField(InputObject){
     errorMessage(InputObject)
 }
 
-validateInputFieldNotEmpty(inputFirstNameObj)
+//Validate all field
+for(let InputObject of arrayInputObject){
+    validateInputFieldNotEmpty(InputObject)
+
+}
 
 function validateInputFieldNotEmpty(InputObject){
     InputObject.documentGet.addEventListener('input', function(event){  
