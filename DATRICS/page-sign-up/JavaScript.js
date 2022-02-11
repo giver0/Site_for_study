@@ -41,6 +41,22 @@ const inputConfirmPasswordObj = {
     errorStorage: [] 
 }
 
+let arrayInputObject = [inputFirstNameObj,
+    inputLastNameObj,
+    inputEmailObj,
+    inputPasswordObj,
+    inputConfirmPasswordObj]
+    
+
+
+for(let InputObject of arrayInputObject){
+    FillErrorField(InputObject)
+}
+
+function FillErrorField(InputObject){
+    errorMessage(InputObject)
+}
+
 validateInputFieldNotEmpty(inputFirstNameObj)
 
 function validateInputFieldNotEmpty(InputObject){
