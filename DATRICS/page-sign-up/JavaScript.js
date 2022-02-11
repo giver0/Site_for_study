@@ -39,13 +39,13 @@ const inputConfirmPasswordObj = {
     errorStorage: [] 
 }
 
-let arrayInputObject = [inputFirstNameObj,
+let arrayInputObject = [
+    inputFirstNameObj,
     inputLastNameObj,
     inputEmailObj,
     inputPasswordObj,
-    inputConfirmPasswordObj]
-    
-
+    inputConfirmPasswordObj
+]
 
 //At the beginin all field must show error
 for(let InputObject of arrayInputObject){
@@ -66,10 +66,8 @@ function validateInputFieldNotEmpty(InputObject){
     InputObject.documentGet.addEventListener('input', function(event){  
         validateFieldNotEmpty(event.target.value, InputObject)    
     })
-    // InputObject.errorField.innerText = InputObject.errorName
-    // documentError.innerText = errorName
 
- }
+}
 
 function validateFieldNotEmpty(ChekingFeild, InputObject){
     if(check_if_field_empty(ChekingFeild)){

@@ -1,0 +1,60 @@
+
+.sign-up__layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-up__container {
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    margin: 100px;
+    vertical-align: top; /*не вплинуло*/
+}
+
+.sign-up__container-field {
+    width: 100%;
+    /*
+    margin-bottom: 20px;
+    */
+}
+
+
+.sign-up__container-field-button {
+    width: 100%;
+    height: 32px;
+    background: #cc3d39;
+    border-radius: 2px;
+    border: none;
+    
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.blocks {
+    display: flex;
+  }
+  .block {
+    background: black;
+    flex-basis: 50%;
+  }
+  .block_red {
+    background: red;
+  }
+  .block_blue {
+    background: blue;
+  }
+  .block:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
