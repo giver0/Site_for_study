@@ -18,22 +18,24 @@ const disabledButtonColor = 'gray'
 
 button.style.background = disabledButtonColor
 
-validateFieldNotEmpty2(inputFirstName, "Имя")
 
-function validateFieldNotEmpty2(document, errorName){
+
+validateFieldNotEmpty2(inputFirstName, inputFirstNameError, "Имя")
+
+function validateFieldNotEmpty2(document, documentError, errorName){
     document.addEventListener('input', function(event){  
         validateFieldNotEmpty(event.target.value, errorName)    
     })
-    document.innerText = event.target.value
+    documentError.innerText = errorName
 
  }
 
-
+/*
 inputFirstName.addEventListener('input', function(event){
        validateFieldNotEmpty(event.target.value, "Имя")
        inputFirstNameError.innerText = event.target.value
     })
-
+*/
 inputLastName.addEventListener('input', function(event){  
     validateFieldNotEmpty(event.target.value, "Фамилию")    
 })
