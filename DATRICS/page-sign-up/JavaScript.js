@@ -18,7 +18,13 @@ const disabledButtonColor = 'gray'
 
 button.style.background = disabledButtonColor
 
-
+const errorStorage = {
+    inputFirstName:[],
+    inputLastName:[],
+    inputEmail:[],
+    inputPassword :[],
+    inputConfirmPassword :[]
+}
 
 validateFieldNotEmpty2(inputFirstName, inputFirstNameError, "Имя")
 
