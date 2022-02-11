@@ -18,15 +18,39 @@ const disabledButtonColor = 'gray'
 
 button.style.background = disabledButtonColor
 
-const errorStorage = {
-    inputFirstName:[],
-    inputLastName:[],
-    inputEmail:[],
-    inputPassword :[],
-    inputConfirmPassword :[]
+const inputFirstNameObj = {
+    document:  document.getElementById('input-first-name'),
+    errorField: document.getElementById('input-first-name-error'),
+    errorStorage: [] 
 }
 
-validateFieldNotEmpty2(inputFirstName, inputFirstNameError, "Имя")
+const inputLastNameObj = {
+    document:  document.getElementById('input-last-name'),
+    errorField: document.getElementById('input-last-name-error'),
+    errorStorage: [] 
+}
+
+const inputFirstNameObj = {
+    document:  document.getElementById('input-first-name'),
+    errorField: document.getElementById('input-first-name-error'),
+    errorStorage: [] 
+}
+
+const inputFirstNameObj = {
+    document:  document.getElementById('input-first-name'),
+    errorField: document.getElementById('input-first-name-error'),
+    errorStorage: [] 
+}
+
+const inputFirstNameObj = {
+    document:  document.getElementById('input-first-name'),
+    errorField: document.getElementById('input-first-name-error'),
+    errorStorage: [] 
+}
+
+
+
+validateFieldNotEmpty2(inputFirstName, inputFirstNameError, "Имя", )
 
 function validateFieldNotEmpty2(document, documentError, errorName){
     document.addEventListener('input', function(event){  
