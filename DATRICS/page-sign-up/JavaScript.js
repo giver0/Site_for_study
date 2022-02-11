@@ -1,102 +1,82 @@
 
 const button = document.getElementById('button-sign-up')
 
-const inputFirstName = document.getElementById('input-first-name')
-const inputLastName = document.getElementById('input-last-name')
-const inputEmail = document.getElementById('input-email')
-const inputPassword = document.getElementById('input-password')
-const inputConfirmPassword = document.getElementById('input-confirm-password')
-
-const inputFirstNameError = document.getElementById('input-first-name-error')
-const inputLastNameError = document.getElementById('input-last-name-error')
-const inputEmailError = document.getElementById('input-email-error')
-const inputPasswordError = document.getElementById('input-password-error')
-const inputConfirmPasswordError = document.getElementById('input-confirm-password-error')
-
 const activeButtonColor = '#CC3D39'
 const disabledButtonColor = 'gray'
 
 button.style.background = disabledButtonColor
 
 const inputFirstNameObj = {
-    document:  document.getElementById('input-first-name'),
+    documentGet:  document.getElementById('input-first-name'),
     errorField: document.getElementById('input-first-name-error'),
+    AddToErrorName: "Имя",
     errorStorage: [] 
 }
 
 const inputLastNameObj = {
-    document:  document.getElementById('input-last-name'),
+    documentGet:  document.getElementById('input-last-name'),
     errorField: document.getElementById('input-last-name-error'),
+    AddToErrorName: "Фамилию",
     errorStorage: [] 
 }
 
-const inputFirstNameObj = {
-    document:  document.getElementById('input-first-name'),
-    errorField: document.getElementById('input-first-name-error'),
+const inputEmailObj = {
+    documentGet:  document.getElementById('input-email'),
+    errorField: document.getElementById('input-email-error'),
+    AddToErrorName: "Email",
     errorStorage: [] 
 }
 
-const inputFirstNameObj = {
-    document:  document.getElementById('input-first-name'),
-    errorField: document.getElementById('input-first-name-error'),
+const inputPasswordObj = {
+    documentGet:  document.getElementById('input-password'),
+    errorField: document.getElementById('input-password-error'),
+    AddToErrorName: "Пароль",
     errorStorage: [] 
 }
 
-const inputFirstNameObj = {
-    document:  document.getElementById('input-first-name'),
-    errorField: document.getElementById('input-first-name-error'),
+const inputConfirmPasswordObj = {
+    documentGet:  document.getElementById('input-confirm-password'),
+    errorField: document.getElementById('input-confirm-password-error'),
+    AddToErrorName: "Подтверждение пароля",
     errorStorage: [] 
 }
 
+validateInputFieldNotEmpty(inputFirstNameObj)
 
-
-validateFieldNotEmpty2(inputFirstName, inputFirstNameError, "Имя", )
-
-function validateFieldNotEmpty2(document, documentError, errorName){
-    document.addEventListener('input', function(event){  
-        validateFieldNotEmpty(event.target.value, errorName)    
+function validateInputFieldNotEmpty(InputObject){
+    InputObject.documentGet.addEventListener('input', function(event){  
+        validateFieldNotEmpty(event.target.value, InputObject)    
     })
-    documentError.innerText = errorName
+    // InputObject.errorField.innerText = InputObject.errorName
+    // documentError.innerText = errorName
 
  }
 
-/*
-inputFirstName.addEventListener('input', function(event){
-       validateFieldNotEmpty(event.target.value, "Имя")
-       inputFirstNameError.innerText = event.target.value
-    })
-*/
-inputLastName.addEventListener('input', function(event){  
-    validateFieldNotEmpty(event.target.value, "Фамилию")    
-})
-
-inputEmail.addEventListener('input', function(event){  
-    validateFieldNotEmpty(event.target.value, "Email")    
-})
-
-inputPassword.addEventListener('input', function(event){  
-    validateFieldNotEmpty(event.target.value, "Пароль")    
-})
-
-inputConfirmPassword.addEventListener('input', function(event){  
-    validateFieldNotEmpty(event.target.value, "Подтверждение пароля")    
-})
-
-function validateFieldNotEmpty(ChekingFeild, errorName){
+function validateFieldNotEmpty(ChekingFeild, InputObject){
     if(check_if_field_empty(ChekingFeild)){
-        errorMessage(errorName)
+        errorMessage(InputObject)
     }
     else{
-        fieldSuccesful()
+        fieldSuccesful(InputObject)
     }
 }
 
-function fieldSuccesful(){
-    console.log('Correctly!')
+function fieldSuccesful(InputObject){
+    let message =    'Correctly!'
+    
+    console.log(message)
+    InputObject.errorField.innerText = message
+    InputObject.errorField.style.color = 'green'
+
 }
 
-function errorMessage(message){
-    console.log(`Необходимо ввести ${message}`)
+function errorMessage(InputObject){
+    let message = `Необходимо ввести ${InputObject.AddToErrorName}`
+        console.log(message)
+    InputObject.errorField.innerText = message
+    InputObject.errorField.style.color = 'red'
+
+
 }
 
 function check_if_field_empty(field_to_check){
