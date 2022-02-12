@@ -10,7 +10,9 @@ const inputFirstNameObj = {
     AddToErrorName: "Имя",
     errorStorage: [], 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty]
+    functionToValidate: [validateInputFieldNotEmpty],
+    eventValue: "",
+    
 }
 
 const inputLastNameObj = {
@@ -19,7 +21,8 @@ const inputLastNameObj = {
     AddToErrorName: "Фамилию",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty]
+    functionToValidate: [validateInputFieldNotEmpty],
+    eventValue: "",
 }
 
 const inputEmailObj = {
@@ -28,7 +31,8 @@ const inputEmailObj = {
     AddToErrorName: "Email",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty]
+    functionToValidate: [validateInputFieldNotEmpty],
+    eventValue: "",
 }
 
 const inputPasswordObj = {
@@ -39,6 +43,7 @@ const inputPasswordObj = {
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty,CheckPasswordMuch],
     ConfirmPasswordObj: {},
+    eventValue: "",
 }
 
 const inputConfirmPasswordObj = {
@@ -48,7 +53,8 @@ const inputConfirmPasswordObj = {
     errorStorage: [] , 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
-    ConfirmPasswordObj: {}
+    ConfirmPasswordObj: {},
+    eventValue: "",
 }
 
 inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
