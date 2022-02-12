@@ -95,7 +95,7 @@ for(let InputObject of arrayInputObject){
 */
 
 function validateInputFieldNotEmpty(InputObject){
-    console.log(`I'm in validateInputFieldNotEmpty ${InputObject.AddToErrorName}`)
+    InThisFunctionDebag(InputObject)
     InputObject.documentGet.addEventListener('input', function(event){  
         validateFieldNotEmpty(event.target.value, InputObject)    
     })
@@ -113,16 +113,13 @@ function validateFieldNotEmpty(ChekingFeild, InputObject){
 
 function fieldSuccesful(InputObject){
     let message =    'Correctly!'
-    
-    console.log(message)
     InputObject.errorField.innerText = message
     InputObject.errorField.style.color = 'green'
 
 }
 
 function errorMessage(InputObject){
-    let message = `Необходимо ввести ${InputObject.AddToErrorName}`
-        console.log(message)
+    let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
     InputObject.errorField.innerText = message
     InputObject.errorField.style.color = 'red'
 
@@ -145,4 +142,9 @@ function CheckPasswordMuch(inputPasswordObj){
 
 function debugIfFieldEmpty(event){
     console.log(`Empty field - ${check_if_field_empty(event)}`) 
+}
+
+function InThisFunctionDebag(InputObject){
+    console.log(`I'm in validateInputFieldNotEmpty - ${InputObject.AddToErrorName}`)
+
 }
