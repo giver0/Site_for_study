@@ -123,7 +123,7 @@ for(let InputObject of arrayInputObject){
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)
     InputObject.documentGet.addEventListener('input', function(event){  
-        if(check_if_field_empty(event.target.value)){
+        if(event.target.value===""){
         }
         else{
             let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
@@ -154,15 +154,6 @@ function errorMessage(InputObject){
     InputObject.errorField.innerText = InputObject.errorMessage
     InputObject.errorField.style.color = 'red'
 
-}
-
-function check_if_field_empty(field_to_check){
-    if(field_to_check===""){
-        return true
-    }
-    else{
-        return false
-    }
 }
 
 function CheckPasswordMuch(inputPasswordObj){
