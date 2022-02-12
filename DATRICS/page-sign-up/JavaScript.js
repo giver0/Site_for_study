@@ -70,17 +70,6 @@ let arrayInputObject = [
     inputConfirmPasswordObj
 ]
 
-//At the beginin all field must show error
-/*
-for(let InputObject of arrayInputObject){
-    FillErrorField(InputObject)
-}
-
-function FillErrorField(InputObject){
-    errorMessage(InputObject)
-}
-*/
-
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
@@ -112,14 +101,6 @@ function outErrorMessage(InputObject){
     
 }
 
-/*
-//Validate all field
-for(let InputObject of arrayInputObject){
-    validateInputFieldNotEmpty(InputObject)
-
-}
-*/
-
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)      
         if(InputObject.eventValue===""){
@@ -131,17 +112,6 @@ function validateInputFieldNotEmpty(InputObject){
         } 
     
 }
-/*
-function validateFieldNotEmpty(ChekingFeild, InputObject){
-    if(check_if_field_empty(ChekingFeild)){
-
-        errorMessage(InputObject)
-    }
-    else{
-        fieldSuccesful(InputObject)
-    }
-}
-*/
 
 function fieldSuccesful(InputObject){
     let message = 'Correctly!'
