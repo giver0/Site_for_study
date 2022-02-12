@@ -61,6 +61,9 @@ const inputConfirmPasswordObj = {
     eventValue: "",
 }
 
+//declare a variables
+//-----------------------------------------
+
 //It need to check if password and confirmPassworn match
 inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
 inputConfirmPasswordObj.ConfirmPasswordObj = inputPasswordObj
