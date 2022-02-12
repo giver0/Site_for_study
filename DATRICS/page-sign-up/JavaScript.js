@@ -57,6 +57,7 @@ const inputConfirmPasswordObj = {
     eventValue: "",
 }
 
+//It need to check if password and confirmPassworn match
 inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
 inputConfirmPasswordObj.ConfirmPasswordObj = inputPasswordObj
 
@@ -70,6 +71,7 @@ let arrayInputObject = [
 ]
 
 //At the beginin all field must show error
+/*
 for(let InputObject of arrayInputObject){
     FillErrorField(InputObject)
 }
@@ -77,18 +79,38 @@ for(let InputObject of arrayInputObject){
 function FillErrorField(InputObject){
     errorMessage(InputObject)
 }
+*/
 
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
-    for(let InputObject of arrayInputObject){         
+    for(let InputObject of arrayInputObject){   
+        InputObject.documentGet.addEventListener('input', function(event){
+            InputObject.eventValue = event.target.value
+
             for(let functionToValidate of InputObject.functionToValidate){
                 functionToValidate(InputObject)
             } 
+
+            outErrorMessage(InputObject)
+        })      
        
     }
 }
 
+function outErrorMessage(InputObject){
+    console.log(InputObject.errorMessage)
+    if(InputObject.errorStorage.length ===0){
+        fieldSuccesful(InputObject)
+    }
+    else{
+        convertErrorToString(InputObject)
+        errorMessage(InputObject)
+        
+    }
+    InputObject.errorStorage.length = 0
+    
+}
 
 /*
 //Validate all field
@@ -101,32 +123,36 @@ for(let InputObject of arrayInputObject){
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)
     InputObject.documentGet.addEventListener('input', function(event){  
-        validateFieldNotEmpty(event.target.value, InputObject)    
+        if(check_if_field_empty(event.target.value)){
+        }
+        else{
+            let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
+            InputObject.errorStorage.push(message)
+        } 
     })
-
 }
-
+/*
 function validateFieldNotEmpty(ChekingFeild, InputObject){
     if(check_if_field_empty(ChekingFeild)){
+
         errorMessage(InputObject)
     }
     else{
         fieldSuccesful(InputObject)
     }
 }
+*/
 
 function fieldSuccesful(InputObject){
-    let message =    'Correctly!'
+    let message = 'Correctly!'
     InputObject.errorField.innerText = message
     InputObject.errorField.style.color = 'green'
 
 }
 
 function errorMessage(InputObject){
-    let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
-    InputObject.errorField.innerText = message
+    InputObject.errorField.innerText = InputObject.errorMessage
     InputObject.errorField.style.color = 'red'
-
 
 }
 
@@ -140,9 +166,20 @@ function check_if_field_empty(field_to_check){
 }
 
 function CheckPasswordMuch(inputPasswordObj){
+    if(inputPasswordObj.eventValue===inputPasswordObj.ConfirmPasswordObj.eventValue){
 
+    }
+    else{
+        inputPasswordObj.errorStorage.push("Password mismatch")
+    }
 }
 
+function convertErrorToString(InputObject){
+    InputObject.errorMessage = InputObject.errorStorage.join(", ")
+}
+
+//-----------------------------------
+//Debug
 
 function debugIfFieldEmpty(event){
     console.log(`Empty field - ${check_if_field_empty(event)}`) 
