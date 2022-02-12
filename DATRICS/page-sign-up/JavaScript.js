@@ -104,8 +104,8 @@ function outErrorMessage(){
             
         }
         InputObject.errorStorage.length = 0
-    }
 
+    }
     
 }
 
@@ -134,12 +134,13 @@ function errorMessage(InputObject){
 
 }
 
-function CheckPasswordMuch(inputPasswordObj){
-    if(inputPasswordObj.eventValue===inputPasswordObj.ConfirmPasswordObj.eventValue){
+function CheckPasswordMuch(InputObject){
+    if(InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
 
     }
     else{
-        inputPasswordObj.errorStorage.push("Password mismatch")
+        InputObject.errorStorage.push("Password mismatch")
+
     }
 }
 
