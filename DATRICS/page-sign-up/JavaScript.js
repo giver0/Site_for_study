@@ -123,10 +123,11 @@ for(let InputObject of arrayInputObject){
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)      
         if(InputObject.eventValue===""){
-        }
-        else{
             let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
             InputObject.errorStorage.push(message)
+        }
+        else{
+            
         } 
     
 }
