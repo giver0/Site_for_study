@@ -55,7 +55,6 @@ inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
 inputConfirmPasswordObj.ConfirmPasswordObj = inputPasswordObj
 
 
-
 let arrayInputObject = [
     inputFirstNameObj,
     inputLastNameObj,
@@ -76,12 +75,11 @@ function FillErrorField(InputObject){
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
-    for(let InputObject of arrayInputObject){
-        InputObject.documentGet.addEventListener('input', function(event){ 
+    for(let InputObject of arrayInputObject){         
             for(let functionToValidate of InputObject.functionToValidate){
                 functionToValidate(InputObject)
             } 
-        })
+       
     }
 }
 
