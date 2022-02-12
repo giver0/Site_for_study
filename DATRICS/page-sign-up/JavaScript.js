@@ -10,7 +10,7 @@ const inputFirstNameObj = {
     AddToErrorName: "Имя",
     errorStorage: [], 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty()]
+    functionToValidate: [validateInputFieldNotEmpty]
 }
 
 const inputLastNameObj = {
@@ -19,7 +19,7 @@ const inputLastNameObj = {
     AddToErrorName: "Фамилию",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty()]
+    functionToValidate: [validateInputFieldNotEmpty]
 }
 
 const inputEmailObj = {
@@ -28,7 +28,7 @@ const inputEmailObj = {
     AddToErrorName: "Email",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty()]
+    functionToValidate: [validateInputFieldNotEmpty]
 }
 
 const inputPasswordObj = {
@@ -37,7 +37,7 @@ const inputPasswordObj = {
     AddToErrorName: "Пароль",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty()]
+    functionToValidate: [validateInputFieldNotEmpty]
 }
 
 const inputConfirmPasswordObj = {
@@ -46,7 +46,7 @@ const inputConfirmPasswordObj = {
     AddToErrorName: "Подтверждение пароля",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty()]
+    functionToValidate: [validateInputFieldNotEmpty]
 }
 
 let arrayInputObject = [
@@ -79,6 +79,8 @@ function ListenAllInputField(arrayInputObject){
 }
 
 console.log("Hello server")
+// console.log("Hello server")
+
 /*
 //Validate all field
 for(let InputObject of arrayInputObject){
