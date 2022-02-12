@@ -61,8 +61,6 @@ const inputConfirmPasswordObj = {
     eventValue: "",
 }
 
-//declare a variables
-//-----------------------------------------
 
 //It need to check if password and confirmPassworn match
 inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
@@ -76,6 +74,9 @@ let arrayInputObject = [
     inputPasswordObj,
     inputConfirmPasswordObj
 ]
+
+//declare a variables
+//-----------------------------------------
 
 ListenAllInputField(arrayInputObject)
 
