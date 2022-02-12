@@ -77,7 +77,7 @@ let arrayInputObject = [
 
 //declare a variables
 //-----------------------------------------
-
+//Test commit from VS code
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
