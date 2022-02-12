@@ -85,23 +85,27 @@ function ListenAllInputField(arrayInputObject){
                 functionToValidate(InputObject)
             } 
 
-            outErrorMessage(InputObject)
-        })      
-       
+            outErrorMessage()
+        })        
     }
+    
+
 }
 
-function outErrorMessage(InputObject){
-    console.log(InputObject.errorMessage)
-    if(InputObject.errorStorage.length ===0){
-        fieldSuccesful(InputObject)
+function outErrorMessage(){
+    for(let InputObject of arrayInputObject){
+
+        if(InputObject.errorStorage.length ===0){
+            fieldSuccesful(InputObject)
+        }
+        else{
+            convertErrorToString(InputObject)
+            errorMessage(InputObject)
+            
+        }
+        InputObject.errorStorage.length = 0
     }
-    else{
-        convertErrorToString(InputObject)
-        errorMessage(InputObject)
-        
-    }
-    InputObject.errorStorage.length = 0
+
     
 }
 
