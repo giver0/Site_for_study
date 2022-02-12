@@ -8,35 +8,45 @@ const inputFirstNameObj = {
     documentGet:  document.getElementById('input-first-name'),
     errorField: document.getElementById('input-first-name-error'),
     AddToErrorName: "Имя",
-    errorStorage: [] 
+    errorStorage: [], 
+    errorMessage: "",
+    functionToValidate: [validateInputFieldNotEmpty()]
 }
 
 const inputLastNameObj = {
     documentGet:  document.getElementById('input-last-name'),
     errorField: document.getElementById('input-last-name-error'),
     AddToErrorName: "Фамилию",
-    errorStorage: [] 
+    errorStorage: [] , 
+    errorMessage: "",
+    functionToValidate: [validateInputFieldNotEmpty()]
 }
 
 const inputEmailObj = {
     documentGet:  document.getElementById('input-email'),
     errorField: document.getElementById('input-email-error'),
     AddToErrorName: "Email",
-    errorStorage: [] 
+    errorStorage: [] , 
+    errorMessage: "",
+    functionToValidate: [validateInputFieldNotEmpty()]
 }
 
 const inputPasswordObj = {
     documentGet:  document.getElementById('input-password'),
     errorField: document.getElementById('input-password-error'),
     AddToErrorName: "Пароль",
-    errorStorage: [] 
+    errorStorage: [] , 
+    errorMessage: "",
+    functionToValidate: [validateInputFieldNotEmpty()]
 }
 
 const inputConfirmPasswordObj = {
     documentGet:  document.getElementById('input-confirm-password'),
     errorField: document.getElementById('input-confirm-password-error'),
     AddToErrorName: "Подтверждение пароля",
-    errorStorage: [] 
+    errorStorage: [] , 
+    errorMessage: "",
+    functionToValidate: [validateInputFieldNotEmpty()]
 }
 
 let arrayInputObject = [
@@ -56,13 +66,33 @@ function FillErrorField(InputObject){
     errorMessage(InputObject)
 }
 
+ListenAllInputField(arrayInputObject)
+
+function ListenAllInputField(arrayInputObject){
+    for(let InputObject of arrayInputObject){
+        InputObject.documentGet.addEventListener('input', function(event){ 
+            for(let validationFunction of InputObject.functionToValidate){
+                validationFunction(InputObject)
+            } 
+        })
+    }
+}
+
+console.log("Hello server")
+/*
 //Validate all field
 for(let InputObject of arrayInputObject){
     validateInputFieldNotEmpty(InputObject)
 
 }
+*/
+
+// CheckPasswordMuch(inputPasswordObj, inputConfirmPasswordObj)
+
+
 
 function validateInputFieldNotEmpty(InputObject){
+    console.log(`I'm in validateInputFieldNotEmpty ${InputObject.AddToErrorName}`)
     InputObject.documentGet.addEventListener('input', function(event){  
         validateFieldNotEmpty(event.target.value, InputObject)    
     })
@@ -104,6 +134,11 @@ function check_if_field_empty(field_to_check){
         return false
     }
 }
+
+function CheckPasswordMuch(inputPasswordObj, inputConfirmPasswordObj){
+
+}
+
 
 function debugIfFieldEmpty(event){
     console.log(`Empty field - ${check_if_field_empty(event)}`) 
