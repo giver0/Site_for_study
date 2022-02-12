@@ -7,7 +7,7 @@ button.style.background = disabledButtonColor
 const inputFirstNameObj = {
     documentGet:  document.getElementById('input-first-name'),
     errorField: document.getElementById('input-first-name-error'),
-    AddToErrorName: "Имя",
+    AddToErrorName: "Name",
     errorStorage: [], 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
@@ -18,7 +18,7 @@ const inputFirstNameObj = {
 const inputLastNameObj = {
     documentGet:  document.getElementById('input-last-name'),
     errorField: document.getElementById('input-last-name-error'),
-    AddToErrorName: "Фамилию",
+    AddToErrorName: "Last Name",
     errorStorage: [] , 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
@@ -28,7 +28,7 @@ const inputLastNameObj = {
 const inputEmailObj = {
     documentGet:  document.getElementById('input-email'),
     errorField: document.getElementById('input-email-error'),
-    AddToErrorName: "Email",
+    AddToErrorName: "email",
     errorStorage: [] , 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
@@ -38,7 +38,7 @@ const inputEmailObj = {
 const inputPasswordObj = {
     documentGet:  document.getElementById('input-password'),
     errorField: document.getElementById('input-password-error'),
-    AddToErrorName: "Пароль",
+    AddToErrorName: "password",
     errorStorage: [] , 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty,CheckPasswordMuch],
@@ -49,7 +49,7 @@ const inputPasswordObj = {
 const inputConfirmPasswordObj = {
     documentGet:  document.getElementById('input-confirm-password'),
     errorField: document.getElementById('input-confirm-password-error'),
-    AddToErrorName: "Подтверждение пароля",
+    AddToErrorName: "confirmation password",
     errorStorage: [] , 
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
@@ -104,7 +104,7 @@ function outErrorMessage(InputObject){
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)      
         if(InputObject.eventValue===""){
-            let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
+            let message = `Уou need to enter a password ${InputObject.AddToErrorName}`
             InputObject.errorStorage.push(message)
         }
         else{
