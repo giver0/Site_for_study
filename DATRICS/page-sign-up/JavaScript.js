@@ -121,15 +121,14 @@ for(let InputObject of arrayInputObject){
 */
 
 function validateInputFieldNotEmpty(InputObject){
-    InThisFunctionDebag(InputObject)
-    InputObject.documentGet.addEventListener('input', function(event){  
-        if(event.target.value===""){
+    InThisFunctionDebag(InputObject)      
+        if(InputObject.eventValue===""){
         }
         else{
             let message = `Необходимо ввести - ${InputObject.AddToErrorName}`
             InputObject.errorStorage.push(message)
         } 
-    })
+    
 }
 /*
 function validateFieldNotEmpty(ChekingFeild, InputObject){
