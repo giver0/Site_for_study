@@ -37,7 +37,8 @@ const inputPasswordObj = {
     AddToErrorName: "Пароль",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty]
+    functionToValidate: [validateInputFieldNotEmpty,CheckPasswordMuch],
+    ConfirmPasswordObj: {},
 }
 
 const inputConfirmPasswordObj = {
@@ -46,8 +47,14 @@ const inputConfirmPasswordObj = {
     AddToErrorName: "Подтверждение пароля",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty]
+    functionToValidate: [validateInputFieldNotEmpty],
+    ConfirmPasswordObj: {}
 }
+
+inputPasswordObj.ConfirmPasswordObj = inputConfirmPasswordObj
+inputConfirmPasswordObj.ConfirmPasswordObj = inputPasswordObj
+
+
 
 let arrayInputObject = [
     inputFirstNameObj,
@@ -71,15 +78,13 @@ ListenAllInputField(arrayInputObject)
 function ListenAllInputField(arrayInputObject){
     for(let InputObject of arrayInputObject){
         InputObject.documentGet.addEventListener('input', function(event){ 
-            for(let validationFunction of InputObject.functionToValidate){
-                validationFunction(InputObject)
+            for(let functionToValidate of InputObject.functionToValidate){
+                functionToValidate(InputObject)
             } 
         })
     }
 }
 
-console.log("Hello server")
-// console.log("Hello server")
 
 /*
 //Validate all field
@@ -88,10 +93,6 @@ for(let InputObject of arrayInputObject){
 
 }
 */
-
-// CheckPasswordMuch(inputPasswordObj, inputConfirmPasswordObj)
-
-
 
 function validateInputFieldNotEmpty(InputObject){
     console.log(`I'm in validateInputFieldNotEmpty ${InputObject.AddToErrorName}`)
@@ -137,7 +138,7 @@ function check_if_field_empty(field_to_check){
     }
 }
 
-function CheckPasswordMuch(inputPasswordObj, inputConfirmPasswordObj){
+function CheckPasswordMuch(inputPasswordObj){
 
 }
 
