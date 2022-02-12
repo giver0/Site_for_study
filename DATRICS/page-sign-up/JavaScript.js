@@ -41,7 +41,11 @@ const inputPasswordObj = {
     AddToErrorName: "password",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty,CheckPasswordMuch],
+    functionToValidate: [
+        validateInputFieldNotEmpty,
+        CheckPasswordMuch,
+        passwordLength        
+    ],
     ConfirmPasswordObj: {},
     eventValue: "",
 }
@@ -137,6 +141,13 @@ function CheckPasswordMuch(inputPasswordObj){
 
 function convertErrorToString(InputObject){
     InputObject.errorMessage = InputObject.errorStorage.join(", ")
+}
+
+function passwordLength(InputObject){
+    console.log(InputObject.eventValue.length)
+    if(InputObject.eventValue.length<8){
+        InputObject.errorStorage.push("Password must contain at least 8 characters")
+    }
 }
 
 //-----------------------------------
