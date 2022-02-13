@@ -30,7 +30,10 @@ const inputEmailObj = {
     AddToErrorName: "email",
     errorStorage: [] , 
     errorMessage: "",
-    validateFunctionArray: [validateInputFieldNotEmpty],
+    validateFunctionArray: [
+        validateInputFieldNotEmpty,
+        validateIfEmailCorrect
+    ],
     eventValue: "",
 }
 
@@ -88,7 +91,7 @@ function ListenAllInputField(arrayInputObject){
         InputObject.documentGet.addEventListener('input', function(event) {
             InputObject.eventValue = event.target.value
             validate_Input_Field_By_validateFunctionArray(InputObject)            
-            outErrorMessage()
+            outAllErrorMessage()
         })        
     }
 
@@ -102,10 +105,10 @@ function validate_Input_Field_By_validateFunctionArray(InputObject){
 
 }
 
-function outErrorMessage() {
+function outAllErrorMessage() {
     for (let InputObject of arrayInputObject){
         if (InputObject.errorStorage.length === 0){
-           // fieldSuccesful(InputObject)
+           makeErrorFieldEmpty(InputObject)
         } else {
             showErrorMessage(InputObject)
         }
@@ -115,7 +118,7 @@ function outErrorMessage() {
 function validateInputFieldNotEmpty(InputObject){
     InThisFunctionDebag(InputObject)
     if (InputObject.eventValue === "") {
-        let message = `Уou need to enter a password ${InputObject.AddToErrorName}`
+        let message = `Уou need to enter a ${InputObject.AddToErrorName}`
         InputObject.errorStorage.push(message)
     }
 }
@@ -124,6 +127,10 @@ function fieldSuccesful(InputObject){
     let message = 'Correctly!'
     InputObject.errorField.innerText = message
     InputObject.errorField.style.color = 'green'
+}
+
+function makeErrorFieldEmpty(InputObject){
+    InputObject.errorField.innerText = ""
 }
 
 function showErrorMessage(InputObject) {
@@ -161,6 +168,14 @@ function passwordLength(InputObject){
     console.log(InputObject.eventValue.length)
     if (InputObject.eventValue.length<8){
         InputObject.errorStorage.push("Password must contain at least 8 characters")
+    }
+}
+
+function validateIfEmailCorrect(InputObject){
+    let regexIsEmailCorrect = /\S+@\S+\.\S+/;
+    isEmailCorrect = regexIsEmailCorrect.test(InputObject.eventValue);
+    if (!isEmailCorrect){
+        InputObject.errorStorage.push("Email is invalid")
     }
 }
 
