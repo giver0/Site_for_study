@@ -261,6 +261,14 @@ function changeisInputEverWasToTrue(InputObject){
     }
 }
 
+button.onclick = function (){
+    console.log("Click")
+    validate_All_Input_Field_By_validateFunctionArray()
+    checkIfAllInputCorrect()
+    alert("Registration successful")
+
+}
+
 
 //-----------------------------------
 //Debug
