@@ -10,7 +10,10 @@ const inputFirstNameObj = {
     AddToErrorName: "Name",
     errorStorage: [], 
     errorMessage: "",
-    validateFunctionArray: [validateInputFieldNotEmpty],
+    validateFunctionArray: [
+        validateInputFieldNotEmpty,
+        validateisNameCorrect,
+    ],
     eventValue: "",
 }
 
@@ -20,7 +23,10 @@ const inputLastNameObj = {
     AddToErrorName: "Last Name",
     errorStorage: [] , 
     errorMessage: "",
-    validateFunctionArray: [validateInputFieldNotEmpty],
+    validateFunctionArray: [
+        validateInputFieldNotEmpty,
+        validateisNameCorrect,
+    ],
     eventValue: "",
 }
 
@@ -176,6 +182,17 @@ function passwordLength(InputObject){
     if (InputObject.eventValue.length<8){
         InputObject.errorStorage.push("Password must contain at least 8 characters")
     }
+}
+
+function validateisNameCorrect(InputObject){
+    if (InputObject.eventValue !=""){
+        let regexIsNameCorrect = /^[A-Za-z\s]+$/
+        isNameCorrect = regexIsNameCorrect.test(InputObject.eventValue);
+        if (!isNameCorrect){
+            InputObject.errorStorage.push("Must contain only english letters")
+        }
+    }
+
 }
 
 function validateIfEmailCorrect(InputObject){
