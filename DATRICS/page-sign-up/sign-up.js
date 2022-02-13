@@ -161,8 +161,22 @@ function CheckPasswordMuch(InputObject){
 
     } else {
         InputObject.errorStorage.push("Password mismatch")
-        InputObject.ConfirmPasswordObj.errorStorage.push("Password mismatch")
+        if (!isPasswordHaveMismatchError(InputObject.ConfirmPasswordObj)){
+            InputObject.ConfirmPasswordObj.errorStorage.push("Password mismatch")
+
+        }
     }
+}
+
+function isPasswordHaveMismatchError(InputObject){
+    for (let errorMessage of InputObject.errorStorage ){
+        if (errorMessage ==="Password mismatch"){
+            return true
+        } else {
+            return false
+        }
+    }
+
 }
 
 function deletePasswordMuch_from_ConfirmPasswordObj(InputObject){
@@ -205,20 +219,14 @@ function validateIfEmailCorrect(InputObject){
 }
 
 function checkIfAllInputCorrect(){
-    let checkIfAnyError = []
     for (let InputObject of arrayInputObject){
         if (InputObject.errorStorage != []){
-            checkIfAnyError.push(InputObject.errorStorage)
-
-        }
-    }
-    if (checkIfAnyError.length>0) {
         button.style.background = disabledButtonColor
-    } else {
-        button.style.background = activeButtonColor
+            return
+        } else {
+           button.style.background = activeButtonColor
+       }
     }
-
-
 }
 
 
