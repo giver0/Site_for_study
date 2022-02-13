@@ -99,14 +99,17 @@ let arrayInputObject = [
 //-----------------------------------------
 //Test commit from VS code
 
+validate_All_Input_Field_By_validateFunctionArray()
+
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
     for (let InputObject of arrayInputObject){   
         InputObject.documentGet.addEventListener('input', function(event) {
+            changeisInputEverWasToTrue(InputObject)
             InputObject.eventValue = event.target.value
             validate_Input_Field_By_validateFunctionArray(InputObject)            
-            outAllErrorMessage()
+            outErrorMessageifInputEverWas()
         })        
     }
 
@@ -115,7 +118,7 @@ function ListenAllInputField(arrayInputObject){
 function validate_All_Input_Field_By_validateFunctionArray(){
     for (let InputObject of arrayInputObject){         
             validate_Input_Field_By_validateFunctionArray(InputObject)            
-            outAllErrorMessage()             
+            outErrorMessageifInputEverWas()            
     }
 }
 
@@ -132,6 +135,19 @@ function outAllErrorMessage() {
         if (InputObject.errorStorage.length === 0){
            makeErrorFieldEmpty(InputObject)
            checkIfAllInputCorrect()
+        } else {
+            showErrorMessage(InputObject)
+        }
+    }
+}
+
+function outErrorMessageifInputEverWas(){
+    for (let InputObject of arrayInputObject){
+        if (InputObject.errorStorage.length === 0){
+           makeErrorFieldEmpty(InputObject)
+           checkIfAllInputCorrect()
+        }  else if (!InputObject.isInputEverWas) {
+            InputObject.errorField.innerText = ""
         } else {
             showErrorMessage(InputObject)
         }
@@ -236,6 +252,12 @@ function checkIfAllInputCorrect(){
         } else {
            button.style.background = activeButtonColor
        }
+    }
+}
+
+function changeisInputEverWasToTrue(InputObject){
+    if (!InputObject.isInputEverWas){
+        InputObject.isInputEverWas = true
     }
 }
 
