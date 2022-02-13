@@ -15,6 +15,7 @@ const inputFirstNameObj = {
         validateisNameCorrect,
     ],
     eventValue: "",
+    isInputEverWas: false,
 }
 
 const inputLastNameObj = {
@@ -28,6 +29,8 @@ const inputLastNameObj = {
         validateisNameCorrect,
     ],
     eventValue: "",
+    isInputEverWas: false,
+
 }
 
 const inputEmailObj = {
@@ -41,6 +44,8 @@ const inputEmailObj = {
         validateIfEmailCorrect
     ],
     eventValue: "",
+    isInputEverWas: false,
+
 }
 
 const inputPasswordObj = {
@@ -56,6 +61,8 @@ const inputPasswordObj = {
     ],
     ConfirmPasswordObj: {},
     eventValue: "",
+    isInputEverWas: false,
+
 }
 
 const inputConfirmPasswordObj = {
@@ -70,6 +77,8 @@ const inputConfirmPasswordObj = {
     ],
     ConfirmPasswordObj: {},
     eventValue: "",
+    isInputEverWas: false,
+
 }
 
 
