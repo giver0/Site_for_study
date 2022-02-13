@@ -102,7 +102,7 @@ function ListenAllInputField(arrayInputObject){
 function outErrorMessage() {
     for (let InputObject of arrayInputObject){
         if (InputObject.errorStorage.length === 0){
-            fieldSuccesful(InputObject)
+           // fieldSuccesful(InputObject)
         } else {
             showErrorMessage(InputObject)
         }
