@@ -10,7 +10,7 @@ const inputFirstNameObj = {
     AddToErrorName: "Name",
     errorStorage: [], 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty],
+    validateFunctionArray: [validateInputFieldNotEmpty],
     eventValue: "",
 }
 
@@ -20,7 +20,7 @@ const inputLastNameObj = {
     AddToErrorName: "Last Name",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty],
+    validateFunctionArray: [validateInputFieldNotEmpty],
     eventValue: "",
 }
 
@@ -30,7 +30,7 @@ const inputEmailObj = {
     AddToErrorName: "email",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty],
+    validateFunctionArray: [validateInputFieldNotEmpty],
     eventValue: "",
 }
 
@@ -40,7 +40,7 @@ const inputPasswordObj = {
     AddToErrorName: "password",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [
+    validateFunctionArray: [
         validateInputFieldNotEmpty,
         CheckPasswordMuch,
         passwordLength        
@@ -55,10 +55,9 @@ const inputConfirmPasswordObj = {
     AddToErrorName: "confirmation password",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [
+    validateFunctionArray: [
         validateInputFieldNotEmpty,
         CheckPasswordMuch,
-        passwordLength,
     ],
     ConfirmPasswordObj: {},
     eventValue: "",
@@ -88,14 +87,18 @@ function ListenAllInputField(arrayInputObject){
     for (let InputObject of arrayInputObject){   
         InputObject.documentGet.addEventListener('input', function(event) {
             InputObject.eventValue = event.target.value
-
-            InputObject.errorStorage = []
-            for (let functionToValidate of InputObject.functionToValidate) {
-                functionToValidate(InputObject)
-            }
+            validate_Input_Field_By_validateFunctionArray(InputObject)            
             outErrorMessage()
         })        
     }
+
+}
+
+function validate_Input_Field_By_validateFunctionArray(InputObject){
+    InputObject.errorStorage = []
+            for (let validateFunctionArray of InputObject.validateFunctionArray) {
+                validateFunctionArray(InputObject)
+            }
 
 }
 
@@ -121,7 +124,6 @@ function fieldSuccesful(InputObject){
     let message = 'Correctly!'
     InputObject.errorField.innerText = message
     InputObject.errorField.style.color = 'green'
-
 }
 
 function showErrorMessage(InputObject) {
@@ -132,11 +134,23 @@ function showErrorMessage(InputObject) {
 
 function CheckPasswordMuch(InputObject){
     if (InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
+        // validate_Input_Field_By_validateFunctionArray(InputObject.ConfirmPasswordObj)
+        // console.log("PassEqual")
+        deletePasswordMuch_from_ConfirmPasswordObj(InputObject.ConfirmPasswordObj)
 
     } else {
         InputObject.errorStorage.push("Password mismatch")
-
+        InputObject.ConfirmPasswordObj.errorStorage.push("Password mismatch")
     }
+}
+
+function deletePasswordMuch_from_ConfirmPasswordObj(InputObject){
+    for (let errorMessage of InputObject.errorStorage ){
+        if (errorMessage ==="Password mismatch"){
+            InputObject.errorStorage.splice(errorMessage, 1)
+        }
+    }
+
 }
 
 function convertErrorToString(InputObject){
