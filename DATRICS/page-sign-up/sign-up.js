@@ -131,7 +131,7 @@ function showErrorMessage(InputObject) {
 }
 
 function CheckPasswordMuch(InputObject){
-    if(InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
+    if (InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
 
     } else {
         InputObject.errorStorage.push("Password mismatch")
@@ -145,7 +145,7 @@ function convertErrorToString(InputObject){
 
 function passwordLength(InputObject){
     console.log(InputObject.eventValue.length)
-    if(InputObject.eventValue.length<8){
+    if (InputObject.eventValue.length<8){
         InputObject.errorStorage.push("Password must contain at least 8 characters")
     }
 }
