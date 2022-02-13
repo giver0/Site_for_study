@@ -97,6 +97,13 @@ function ListenAllInputField(arrayInputObject){
 
 }
 
+function validate_All_Input_Field_By_validateFunctionArray(){
+    for (let InputObject of arrayInputObject){         
+            validate_Input_Field_By_validateFunctionArray(InputObject)            
+            outAllErrorMessage()             
+    }
+}
+
 function validate_Input_Field_By_validateFunctionArray(InputObject){
     InputObject.errorStorage = []
             for (let validateFunctionArray of InputObject.validateFunctionArray) {
