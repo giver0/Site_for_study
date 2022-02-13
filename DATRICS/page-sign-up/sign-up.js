@@ -12,7 +12,6 @@ const inputFirstNameObj = {
     errorMessage: "",
     functionToValidate: [validateInputFieldNotEmpty],
     eventValue: "",
-    
 }
 
 const inputLastNameObj = {
@@ -56,7 +55,11 @@ const inputConfirmPasswordObj = {
     AddToErrorName: "confirmation password",
     errorStorage: [] , 
     errorMessage: "",
-    functionToValidate: [validateInputFieldNotEmpty],
+    functionToValidate: [
+        validateInputFieldNotEmpty,
+        CheckPasswordMuch,
+        passwordLength,
+    ],
     ConfirmPasswordObj: {},
     eventValue: "",
 }
@@ -78,51 +81,40 @@ let arrayInputObject = [
 //declare a variables
 //-----------------------------------------
 //Test commit from VS code
+
 ListenAllInputField(arrayInputObject)
 
 function ListenAllInputField(arrayInputObject){
-    for(let InputObject of arrayInputObject){   
-        InputObject.documentGet.addEventListener('input', function(event){
+    for (let InputObject of arrayInputObject){   
+        InputObject.documentGet.addEventListener('input', function(event) {
             InputObject.eventValue = event.target.value
 
-            for(let functionToValidate of InputObject.functionToValidate){
+            InputObject.errorStorage = []
+            for (let functionToValidate of InputObject.functionToValidate) {
                 functionToValidate(InputObject)
-            } 
-
+            }
             outErrorMessage()
         })        
     }
-    
 
 }
 
-function outErrorMessage(){
-    for(let InputObject of arrayInputObject){
-
-        if(InputObject.errorStorage.length ===0){
+function outErrorMessage() {
+    for (let InputObject of arrayInputObject){
+        if (InputObject.errorStorage.length === 0){
             fieldSuccesful(InputObject)
+        } else {
+            showErrorMessage(InputObject)
         }
-        else{
-            convertErrorToString(InputObject)
-            errorMessage(InputObject)
-            
-        }
-        InputObject.errorStorage.length = 0
-
     }
-    
 }
 
 function validateInputFieldNotEmpty(InputObject){
-    InThisFunctionDebag(InputObject)      
-        if(InputObject.eventValue===""){
-            let message = `Уou need to enter a password ${InputObject.AddToErrorName}`
-            InputObject.errorStorage.push(message)
-        }
-        else{
-            
-        } 
-    
+    InThisFunctionDebag(InputObject)
+    if (InputObject.eventValue === "") {
+        let message = `Уou need to enter a password ${InputObject.AddToErrorName}`
+        InputObject.errorStorage.push(message)
+    }
 }
 
 function fieldSuccesful(InputObject){
@@ -132,17 +124,16 @@ function fieldSuccesful(InputObject){
 
 }
 
-function errorMessage(InputObject){
+function showErrorMessage(InputObject) {
+    convertErrorToString(InputObject)
     InputObject.errorField.innerText = InputObject.errorMessage
     InputObject.errorField.style.color = 'red'
-
 }
 
 function CheckPasswordMuch(InputObject){
     if(InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
 
-    }
-    else{
+    } else {
         InputObject.errorStorage.push("Password mismatch")
 
     }
