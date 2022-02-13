@@ -122,6 +122,7 @@ function outAllErrorMessage() {
     for (let InputObject of arrayInputObject){
         if (InputObject.errorStorage.length === 0){
            makeErrorFieldEmpty(InputObject)
+           checkIfAllInputCorrect()
         } else {
             showErrorMessage(InputObject)
         }
@@ -202,6 +203,24 @@ function validateIfEmailCorrect(InputObject){
         InputObject.errorStorage.push("Email is invalid")
     }
 }
+
+function checkIfAllInputCorrect(){
+    let checkIfAnyError = []
+    for (let InputObject of arrayInputObject){
+        if (InputObject.errorStorage != []){
+            checkIfAnyError.push(InputObject.errorStorage)
+
+        }
+    }
+    if (checkIfAnyError.length>0) {
+        button.style.background = disabledButtonColor
+    } else {
+        button.style.background = activeButtonColor
+    }
+
+
+}
+
 
 //-----------------------------------
 //Debug
