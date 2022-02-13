@@ -130,7 +130,6 @@ function outAllErrorMessage() {
 }
 
 function validateInputFieldNotEmpty(InputObject){
-    InThisFunctionDebag(InputObject)
     if (InputObject.eventValue === "") {
         let message = `Уou need to enter a ${InputObject.AddToErrorName}`
         InputObject.errorStorage.push(message)
@@ -219,8 +218,10 @@ function validateIfEmailCorrect(InputObject){
 }
 
 function checkIfAllInputCorrect(){
+    console.log(parent.name)
+    console.log("checkIfAllInputCorrect")
     for (let InputObject of arrayInputObject){
-        if (InputObject.errorStorage != []){
+        if (InputObject.errorStorage.length>0){
         button.style.background = disabledButtonColor
             return
         } else {
