@@ -214,7 +214,6 @@ function convertErrorToString(InputObject){
 }
 
 function passwordLength(InputObject){
-    console.log(InputObject.eventValue.length)
     if (InputObject.eventValue.length<8){
         InputObject.errorStorage.push("Password must contain at least 8 characters")
     }
@@ -256,8 +255,6 @@ button.onclick = function (){
 }
 
 function checkIfAllInputCorrect(){
-    console.log("checkIfAllInputCorrect")
-
     let hasAnyError = arrayInputObject
         .map(InputObject => InputObject.errorStorage)
         .some(errors => errors.length>0)
@@ -267,8 +264,7 @@ function checkIfAllInputCorrect(){
     } else {
         button.style.background = activeButtonColor
         isAllFieldsreFilledCorrectly = true
-    }
-   
+    }   
 }
 
 function containNumbersAndChars(InputObject){   
