@@ -111,6 +111,7 @@ function ListenAllInputField(arrayInputObject){
             InputObject.eventValue = event.target.value
             validate_Input_Field_By_validateFunctionArray(InputObject)            
             outErrorMessageifInputEverWas()
+            //+Check if all correct
         })        
     }
 
@@ -134,8 +135,7 @@ function validate_Input_Field_By_validateFunctionArray(InputObject){
 function outAllErrorMessage() {
     for (let InputObject of arrayInputObject){
         if (InputObject.errorStorage.length === 0){
-           makeErrorFieldEmpty(InputObject)
-           checkIfAllInputCorrect()
+           makeErrorFieldEmpty(InputObject)           
         } else {
             showErrorMessage(InputObject)
         }
@@ -243,18 +243,6 @@ function validateIfEmailCorrect(InputObject){
     }
 }
 
-function checkIfAllInputCorrect(){
-    console.log(parent.name)
-    console.log("checkIfAllInputCorrect")
-    for (let InputObject of arrayInputObject){
-        if (InputObject.errorStorage.length>0){
-        button.style.background = disabledButtonColor
-            return
-        } else {
-           button.style.background = activeButtonColor
-       }
-    }
-}
 
 function changeisInputEverWasToTrue(InputObject){
     if (!InputObject.isInputEverWas){
@@ -264,10 +252,29 @@ function changeisInputEverWasToTrue(InputObject){
 
 button.onclick = function (){
     console.log("Click")
-    validate_All_Input_Field_By_validateFunctionArray()
+    outAllErrorMessage()
     checkIfAllInputCorrect()
-    alert("Registration successful")
+    if (button.style.background === activeButtonColor){
+        alert("Registration successful")
+    }
 
+    
+}
+
+function checkIfAllInputCorrect(){
+    console.log("checkIfAllInputCorrect")
+
+    let hasAnyError = arrayInputObject
+        .map(InputObject => InputObject.errorStorage)
+        .some(errors => errors.length>0)
+     if (hasAnyError){
+         console.log("hasAnyError")
+        button.style.background = disabledButtonColor
+     } else {
+        console.log("N0Error")
+        button.style.background = activeButtonColor
+     }
+   
 }
 
 function containNumbersAndChars(InputObject){   
@@ -280,8 +287,15 @@ function containNumbersAndChars(InputObject){
 }
 
 
+
 //-----------------------------------
 //Debug
+
+function showAllErrorDebug(){
+    for (let InputObject of arrayInputObject){
+        console.log(`${InputObject.AddToErrorName} - ${InputObject.errorStorage}`)
+    }
+}
 
 function debugIfFieldEmpty(event){
     console.log(`Empty field - ${check_if_field_empty(event)}`) 
