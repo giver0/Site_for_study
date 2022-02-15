@@ -2,7 +2,7 @@
 const button = document.getElementById('button-sign-up')
 const activeButtonColor = '#CC3D39'
 const disabledButtonColor = 'gray'
-button.style.background = activeButtonColor
+button.style.background = disabledButtonColor
 let isAllFieldsreFilledCorrectly = false
 
 const inputFirstNameObj = {
@@ -100,10 +100,6 @@ let arrayInputObject = [
 //declare a variables
 //-----------------------------------------
 
-//
-
-console.log(button.style.background)
-
 validate_All_Input_Field_By_validateFunctionArray()
 
 ListenAllInputField(arrayInputObject)
@@ -114,8 +110,7 @@ function ListenAllInputField(arrayInputObject){
             changeisInputEverWasToTrue(InputObject)
             InputObject.eventValue = event.target.value
             validate_Input_Field_By_validateFunctionArray(InputObject)            
-            outErrorMessageifInputEverWas()
-            //+Check if all correct
+            outErrorMessageifInputEverWas()            
         })        
     }
 
@@ -130,9 +125,9 @@ function validate_All_Input_Field_By_validateFunctionArray(){
 
 function validate_Input_Field_By_validateFunctionArray(InputObject){
     InputObject.errorStorage = []
-            for (let validateFunctionArray of InputObject.validateFunctionArray) {
-                validateFunctionArray(InputObject)
-            }
+    for (let validateFunctionArray of InputObject.validateFunctionArray) {
+        validateFunctionArray(InputObject)
+    }
 
 }
 
@@ -184,10 +179,7 @@ function showErrorMessage(InputObject) {
 
 function CheckPasswordMuch(InputObject){
     if (InputObject.eventValue===InputObject.ConfirmPasswordObj.eventValue){
-        // validate_Input_Field_By_validateFunctionArray(InputObject.ConfirmPasswordObj)
-        // console.log("PassEqual")
         deletePasswordMuch_from_ConfirmPasswordObj(InputObject.ConfirmPasswordObj)
-
     } else {
         InputObject.errorStorage.push("Password mismatch")
         if (!isPasswordHaveMismatchError(InputObject.ConfirmPasswordObj)){
@@ -260,9 +252,7 @@ button.onclick = function (){
     checkIfAllInputCorrect()
     if (isAllFieldsreFilledCorrectly){
         alert("Registration successful")
-    }
-
-    
+    }    
 }
 
 function checkIfAllInputCorrect(){
@@ -271,15 +261,13 @@ function checkIfAllInputCorrect(){
     let hasAnyError = arrayInputObject
         .map(InputObject => InputObject.errorStorage)
         .some(errors => errors.length>0)
-     if (hasAnyError){
-         console.log("hasAnyError")
+    if (hasAnyError){
         button.style.background = disabledButtonColor
         isAllFieldsreFilledCorrectly = false
-     } else {
-        console.log("N0Error")
+    } else {
         button.style.background = activeButtonColor
         isAllFieldsreFilledCorrectly = true
-     }
+    }
    
 }
 
