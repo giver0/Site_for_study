@@ -2,7 +2,8 @@
 const button = document.getElementById('button-sign-up')
 const activeButtonColor = '#CC3D39'
 const disabledButtonColor = 'gray'
-button.style.background = disabledButtonColor
+button.style.background = activeButtonColor
+let isAllFieldsreFilledCorrectly = false
 
 const inputFirstNameObj = {
     documentGet:  document.getElementById('input-first-name'),
@@ -100,6 +101,9 @@ let arrayInputObject = [
 //-----------------------------------------
 
 //
+
+console.log(button.style.background)
+
 validate_All_Input_Field_By_validateFunctionArray()
 
 ListenAllInputField(arrayInputObject)
@@ -254,7 +258,7 @@ button.onclick = function (){
     console.log("Click")
     outAllErrorMessage()
     checkIfAllInputCorrect()
-    if (button.style.background === activeButtonColor){
+    if (isAllFieldsreFilledCorrectly){
         alert("Registration successful")
     }
 
@@ -270,9 +274,11 @@ function checkIfAllInputCorrect(){
      if (hasAnyError){
          console.log("hasAnyError")
         button.style.background = disabledButtonColor
+        isAllFieldsreFilledCorrectly = false
      } else {
         console.log("N0Error")
         button.style.background = activeButtonColor
+        isAllFieldsreFilledCorrectly = true
      }
    
 }
