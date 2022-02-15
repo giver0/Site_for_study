@@ -57,7 +57,8 @@ const inputPasswordObj = {
     validateFunctionArray: [
         validateInputFieldNotEmpty,
         CheckPasswordMuch,
-        passwordLength        
+        passwordLength,
+        containNumbersAndChars        
     ],
     ConfirmPasswordObj: {},
     eventValue: "",
@@ -97,8 +98,8 @@ let arrayInputObject = [
 
 //declare a variables
 //-----------------------------------------
-//Test commit from VS code
 
+//
 validate_All_Input_Field_By_validateFunctionArray()
 
 ListenAllInputField(arrayInputObject)
@@ -267,6 +268,15 @@ button.onclick = function (){
     checkIfAllInputCorrect()
     alert("Registration successful")
 
+}
+
+function containNumbersAndChars(InputObject){   
+    let regexIsPasshaveCharsAndNumbrs = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    isPasshaveCharsAndNumbr = regexIsPasshaveCharsAndNumbrs.test(InputObject.eventValue);
+    if (!isPasshaveCharsAndNumbr){
+        InputObject.errorStorage.push("Must contain numbers and english chars")
+    }
+    
 }
 
 
