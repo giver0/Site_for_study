@@ -1,9 +1,9 @@
 
 function PassLength(email) 
     {
-        let ret = /.{8,}/
+        let ret = /(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
         return ret.test(email)
     }
-console.log(PassLength("1234567"))
+console.log(PassLength("qweasdzx!"))
 
     
