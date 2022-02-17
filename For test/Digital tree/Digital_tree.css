@@ -45,7 +45,8 @@
   }
   .block {
     background: black;
-    flex-basis: 50%;
+    /*flex-basis: 50%;*/
+    width: 400px;
   }
   .block_red {
     background: red;
