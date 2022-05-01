@@ -1,0 +1,175 @@
+.header__container{
+  margin: 32px 40px;
+}
+
+.sign-in__form {
+  width: 390px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+    
+}
+
+.sign-in__form-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  color: #222528;
+  margin-bottom: 40px;
+}
+
+.sign-in__form-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 390px;
+  margin-top: 30px;
+}
+
+.sign-in__form-container-auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 390px;
+  vertical-align: top; /*не вплинуло*/
+  margin-top: 30px;
+}
+
+.sign-in__form-container-title-field {
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #222528;
+  mix-blend-mode: normal;
+}
+
+.sign-in__form-container-input-field {
+  width: 100%;
+  margin-top: 10px;
+  height: 30px;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+  background: #F2F2F2;;
+  box-sizing: border-box;
+}
+
+.sign-in__form-container-reset {
+  align-self: flex-end;
+  /* position: absolute;
+  right: 0px;
+  bottom: 12px; */
+  /* text-decoration: none; */
+}
+
+.sign-in__form-container-auth-button {
+  width: 40%;
+}
+
+.sign-in__form-container-button {
+  width: 120px;
+  height: 32px;
+  background: #cc3d39;
+  border-radius: 2px;
+  border: none;
+  
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.sign-in__form-container-button:hover {
+  color: #fff;
+  background: rgb(241, 47, 47);
+}
+
+.sign-up__field {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 18px;
+  text-align:justify;
+  color: #222528;
+}
+/* test */
+
+.sign-in__container-field-button {
+  width: 100%;
+  height: 32px;
+  background: #cc3d39;
+  border-radius: 2px;
+  border: none;
+  margin-bottom: 20px;
+  
+  
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) 
+{
+    .header__container {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: 40px;
+        height: 50%;
+    }
+    
+    .sign-in__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      box-sizing: content-box;
+    }
+}
+
+/*
+dont get how to use media to fit screen while it changes
+@media (max-width: 500px) {
+    .header {
+      min-width: 300px
+      max-width: 300px
+    }
+    .sign_up_layout {
+      min-width: 120px
+    }
+    .sign_up_description {
+        min-width: 300px
+        max-width: 300px
+      }
+    .sign_up_container {
+        min-width: 120px
+    }
+    .footer {
+        min-width: 120px
+    }
+}
+*/

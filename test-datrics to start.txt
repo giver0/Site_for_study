@@ -1,0 +1,9 @@
+cd Documents\GitLab\website-for-learning\test-datrics\
+npm run serve
+vue-test-site
+npm i
+npm audit fix --force
+npm i -g @vue/cli
+vue create test-datrics
+npm install - один раз
+npm run lint -- --fix

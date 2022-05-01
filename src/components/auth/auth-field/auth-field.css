@@ -1,0 +1,63 @@
+.sign-up__container-field {
+    width: 100%;
+    position: relative;
+}
+
+.sign-up__container-title {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    color: #222528;
+    margin-bottom: 40px;
+}
+
+.sign-up__container-field-title {
+    width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #b4b4b4;
+}
+
+.sign-up__container-field-input-box {
+    position: relative;
+}
+
+.sign-up__container-field-input {
+    width: 100%;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    background: #F2F2F2;;
+    box-sizing: border-box;
+}
+
+.sign-up__container-field-error {
+    width: 100%;
+    min-height: 20px;
+    font-family: 'Source Sans Pro', sans-serif;  
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: red;   
+}
+
+.sign-up__container-field-password {
+    position: absolute;
+}
+
+.sign-up__container-field-password-control {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    display: flex;
+    justify-content: flex-end;
+    height: 15px;
+    cursor: pointer;
+}
